@@ -1,0 +1,8 @@
+C:\Users\phxpo\OneDrive\Pulpit\moje_zadania\instance>sqlite3 tasks.db
+SQLite version 3.50.4 2025-07-30 19:33:53
+Enter ".help" for usage hints.
+sqlite> .databases
+main: C:\Users\phxpo\OneDrive\Pulpit\moje_zadania\instance\maks. r/w
+sqlite> . headers on
+sqlite> select * from task;
+
