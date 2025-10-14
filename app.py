@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY", "moj_sekret")
 
 # konfiguracja bazy danych SQLite
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tasks.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://todo_db_9usc_user:Gpt7xwNeYs28IJyTyIZjBa7KebvGgTIU@dpg-d3n7ogbuibrs73bivphg-a.frankfurt-postgres.render.com/todo_db_9usc'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
