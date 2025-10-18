@@ -83,25 +83,19 @@ def import_tasks():
     Importuje zadania z pliku JSON przesłanego przez użytkownika.
     """
     if request.method == 'POST':
-        file = request.files['file']  # pobranie pliku z formularza
+        file = request.files['file']
         if file:
             tasks_list = json.load(file)
             for t in tasks_list:
-                # sprawdzamy, czy zadanie już nie istnieje po id
                 if not Task.query.get(t['id']):
                     new_task = Task(id=t['id'], content=t['content'], done=t['done'])
                     db.session.add(new_task)
             db.session.commit()
         return redirect('/')
 
-    # GET - wyświetlenie prostego formularza do wgrania pliku
-    return '''
-    <h2>Import zadań z JSON</h2>
-    <form method="POST" enctype="multipart/form-data">
-        <input type="file" name="file" required>
-        <button type="submit">Importuj</button>
-    </form>
-    '''
+    # GET — zwraca elegancką stronę formularza
+    return render_template('import.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
