@@ -58,5 +58,27 @@ def toggle_task(id):
     db.session.commit()
     return redirect('/')
 
+import json
+from flask import send_file
+
+@app.route('/export')
+def export_tasks():
+    """
+    Eksportuje wszystkie zadania z bazy do pliku JSON.
+    Plik jest pobierany przez przeglądarkę.
+    """
+    tasks = Task.query.all()
+    tasks_list = [{"id": t.id, "content": t.content, "done": t.done} for t in tasks]
+
+    # zapis do tymczasowego pliku
+    with open("tasks_backup.json", "w") as f:
+        json.dump(tasks_list, f, indent=4)
+
+    # wysłanie pliku do pobrania
+    return send_file("tasks_backup.json", as_attachment=True)
+
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+
