@@ -19,8 +19,8 @@ class Task(db.Model):
     content = db.Column(db.String(200), nullable=False)
     done = db.Column(db.Boolean, default=False)  # ✅ NOWE POLE
 
-with app.app_context():
-    db.create_all()
+# with app.app_context():
+#   db.create_all()
 
 @app.route('/')
 def index():
