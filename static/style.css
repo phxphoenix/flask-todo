@@ -1,222 +1,137 @@
+/* 🌸 Ogólny styl — pastelowy i minimalistyczny */
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background: #f2f2f2;
-    display: flex;
-    justify-content: center;
-    padding: 50px;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #f9f9f9, #eef3ff);
+    color: #333;
+    margin: 0;
+    padding: 0;
 }
 
+/* 📱 Główne okno aplikacji */
 .container {
+    max-width: 480px;
+    margin: 40px auto;
     background: white;
-    border-radius: 15px;
-    padding: 30px;
-    width: 400px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    padding: 20px;
 }
 
+/* 📝 Nagłówek */
 h1 {
     text-align: center;
+    color: #4a4a9d;
+    font-size: 1.8rem;
     margin-bottom: 20px;
 }
 
+/* ➕ Formularz dodawania zadań */
 .add-form {
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
 }
 
-.add-form input {
+.add-form input[type="text"] {
     flex: 1;
-    padding: 8px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
+    padding: 10px 14px;
+    border: 2px solid #cfd5ff;
+    border-radius: 12px;
+    font-size: 1rem;
+    outline: none;
 }
 
-button {
-    padding: 8px 12px;
-    background: #4CAF50;
+.add-form input[type="text"]:focus {
+    border-color: #7a82ff;
+}
+
+.add-form button {
+    background: #7a82ff;
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 12px;
+    padding: 10px 18px;
+    font-size: 1rem;
     cursor: pointer;
+    transition: background 0.2s;
 }
 
-button:hover {
-    background: #45a049;
+.add-form button:hover {
+    background: #5f66e6;
 }
 
+/* 📋 Lista zadań */
 .task-list {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .task-list li {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 8px;
-    padding: 6px 8px;
-    border-radius: 6px;
-    transition: 0.2s;
+    padding: 10px 8px;
+    border-bottom: 1px solid #eee;
+}
+
+.task-list li:last-child {
+    border-bottom: none;
+}
+
+/* ✅ Checkbox + tekst zadania */
+.checkbox {
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+.task-list span {
+    flex: 1;
+    font-size: 1rem;
+    color: #333;
 }
 
 .task-list li.done span {
     text-decoration: line-through;
-    color: gray;
+    color: #aaa;
 }
 
-.checkbox {
-    text-decoration: none;
-    font-size: 1.2em;
-}
-
+/* 🗑️ Przycisk kasowania */
 .delete {
     text-decoration: none;
-    color: red;
-    margin-left: 8px;
+    font-size: 1.2rem;
+    color: #ff6b6b;
+    transition: 0.2s;
 }
 
-.actions {
-    margin-top: 15px;
-    display: flex;
-    gap: 10px;
-    justify-content: center;
+.delete:hover {
+    color: #ff3b3b;
 }
 
-.btn-export, .btn-import {
-    display: inline-block;
-    background-color: #4CAF50;
-    color: white;
-    padding: 8px 16px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.2s;
-}
-
-.btn-import {
-    background-color: #2196F3;
-}
-
-.btn-export:hover {
-    background-color: #45a049;
-}
-
-.btn-import:hover {
-    background-color: #1e88e5;
-}
-
-.import-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.import-form input[type="file"] {
-    padding: 8px;
-    background-color: #f0f0f0;
-    border-radius: 6px;
-}
-
-.import-form button {
-    background-color: #2196F3;
-    color: white;
-    padding: 8px 20px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.import-form button:hover {
-    background-color: #1e88e5;
-}
-
-.back-link {
-    display: block;
-    margin-top: 20px;
-    text-align: center;
-    color: #555;
-    text-decoration: none;
-}
-
-.back-link:hover {
-    text-decoration: underline;
-}
-
-.flash-messages {
-    display: flex;
-    justify-content: center;
-    margin: 15px 0;
-}
-
-.flash {
-    padding: 10px 18px;
-    border-radius: 8px;
-    font-weight: bold;
-    animation: fadeOut 4s forwards;
-}
-
-.flash.success {
-    background-color: #c8e6c9;
-    color: #256029;
-    border: 1px solid #81c784;
-}
-
-.flash.error {
-    background-color: #ffcdd2;
-    color: #b71c1c;
-    border: 1px solid #ef9a9a;
-}
-
-@keyframes fadeOut {
-    0% { opacity: 1; }
-    80% { opacity: 1; }
-    100% { opacity: 0; display: none; }
-}
-
-/* Styl responsywny dla telefonów */
+/* 📱 Styl responsywny */
 @media (max-width: 600px) {
     .container {
-        width: 95%;
-        padding: 10px;
-    }
-
-    h1 {
-        font-size: 1.5rem;
-        text-align: center;
+        width: 92%;
+        margin: 20px auto;
+        padding: 15px;
     }
 
     .add-form {
-        display: flex;
         flex-direction: column;
-        gap: 8px;
-    }
-
-    .add-form input[type="text"] {
-        width: 100%;
-        font-size: 1rem;
     }
 
     .add-form button {
         width: 100%;
-        padding: 10px;
-        font-size: 1rem;
+        padding: 12px;
     }
 
     .task-list li {
-        display: flex;
+        flex-direction: row;
         align-items: center;
-        justify-content: space-between;
-        padding: 8px;
-        font-size: 0.95rem;
     }
 
     .task-list span {
-        flex: 1;
-        margin: 0 10px;
-        word-wrap: break-word;
+        margin: 0 8px;
     }
 }
