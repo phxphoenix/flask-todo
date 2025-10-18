@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>📥 Import JSON</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📥 Importuj zadania z pliku JSON</h1>
+        <p>Wybierz plik <strong>tasks_backup.json</strong>, aby przywrócić listę zadań.</p>
+
+        <form method="POST" enctype="multipart/form-data" class="import-form">
+            <input type="file" name="file" accept=".json" required>
+            <button type="submit">Importuj</button>
+        </form>
+
+        <a href="/" class="back-link">← Powrót do listy</a>
+    </div>
+</body>
+</html>
