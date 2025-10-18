@@ -1,16 +1,15 @@
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 
-app = Flask(__name__)
-
 import os
 
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY", "moj_sekret")
 
-# konfiguracja bazy danych SQLite
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://todo_db_9usc_user:Gpt7xwNeYs28IJyTyIZjBa7KebvGgTIU@dpg-d3n7ogbuibrs73bivphg-a.frankfurt-postgres.render.com/todo_db_9usc'
+# konfiguracja bazy danych PostgreSQL (Render) lub lokalnej SQLite jako fallback
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///tasks.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 db = SQLAlchemy(app)
 
 # model danych
