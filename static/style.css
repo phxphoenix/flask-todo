@@ -176,3 +176,47 @@ button:hover {
     80% { opacity: 1; }
     100% { opacity: 0; display: none; }
 }
+
+/* Styl responsywny dla telefonów */
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .add-form {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .add-form input[type="text"] {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .add-form button {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    .task-list li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px;
+        font-size: 0.95rem;
+    }
+
+    .task-list span {
+        flex: 1;
+        margin: 0 10px;
+        word-wrap: break-word;
+    }
+}
