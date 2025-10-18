@@ -13,7 +13,10 @@
             <input type="text" name="content" placeholder="Nowe zadanie..." required>
             <button type="submit">Dodaj</button>
         </form>
-
+		<div class="actions">
+ 		   <a href="/export" class="btn-export">📦 Eksportuj JSON</a>
+   		   <a href="/import" class="btn-import">📥 Importuj JSON</a>
+		</div>
         <ul class="task-list">
             {% for task in tasks %}
             <li class="{{ 'done' if task.done else '' }}">
