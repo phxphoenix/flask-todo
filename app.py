@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
 
 import os
@@ -91,7 +91,9 @@ def import_tasks():
                     new_task = Task(id=t['id'], content=t['content'], done=t['done'])
                     db.session.add(new_task)
             db.session.commit()
+            flash('Zadania zostały pomyślnie zaimportowane ✅', 'success')
         return redirect('/')
+        
 
     # GET — zwraca elegancką stronę formularza
     return render_template('import.html')
